@@ -1,6 +1,4 @@
 # M324-Gruppe-4
-Das Modul 324.
-
 # Lernjournal
 - Sandro, [Lernjournal Google Docs](https://docs.google.com/document/d/1CIr05FZOiyJgAC_m1EpGrpeQ7XEgO1Q3kbUQgy1xe44/edit?tab=t.0#heading=h.gaj5ai4ayi09)
 - Jan, [Lernjournal Google Docs](https://docs.google.com/document/d/1oOOwJ9HIVef2mdvviXlyIAiXMGHFq_CySZcNQuIQxgE/edit?usp=sharing)
