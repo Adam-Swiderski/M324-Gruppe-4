@@ -4,7 +4,7 @@
 Der SDLC ist ein Prozess, mit dem Teams Software planen und bauen. Er soll die Projektrisiken klein halten. Die Phasen sind: Planung, Design, Implementierung, Test, Deployment und Wartung.
 SDLC wird normalerweise agil verwendet und in die gewissen Phasen aufgeteilt, kann aber auch als Wasserfall verwendet werden.
 Mit Quality Gates, Meilensteine, sowie Backlog und Messung von Liefergeschwindigkeiten kontrolliert man und anhand davon wird der Ablauf gesteuert.
-
+![SDLC Lifecycle](image-1.png)
 ## 2. Was ist der DevOps Lifecycle, und wie ist er strukturiert?
 Der DevOps Lifecycle ist ein Kreislauf, der Entwicklung und Betrieb verbindet. Er läuft immer wieder durch, mit viel Automatisierung und Feedback. Die Erkenntnisse aus dem Monitoring gehen in die nächste Planung.
 ![DevOps Lifecycle](image.png)
