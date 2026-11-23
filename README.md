@@ -5,7 +5,7 @@
 - [Lernjournal](#lernjournal)
 - [Zeit-Logging](#zeit-logging)
 - [Entscheidungen](#entscheidungen)
-- [Branching](#branching)
+- [Branching-Strategie](#branching-strategie)
 
 ## Lernjournal
 - Sandro, [Lernjournal Google Docs](https://docs.google.com/document/d/1CIr05FZOiyJgAC_m1EpGrpeQ7XEgO1Q3kbUQgy1xe44/edit?tab=t.0#heading=h.gaj5ai4ayi09)
@@ -18,7 +18,32 @@
 ## Entscheidungen
 Wichtige Entscheidungen mit Begründung festhalten.
 
-### Branching
-Wir haben uns dafür entschieden nur zwei branches zu erstellen und direkt auf der "feat/..." pipeline tests laufen zu lassen. Dafür brauchen wir kein dev und haben keinen halb kaputten branch.
-main -> Hier wird nur "guter", reviewter, getesteter Code gepusht und main muss immer funktionieren.
-feat/... -> Auf diesen branches wird neuer code geschrieben, getestet und überprüft. Er muss nicht immer voll funktional sein und kann je nachdem auch nicht funktionieren. Bevor man eine mr/pr erstellt, muss jedoch der branch builable und komplett implementiert sein.
+### Branching-Strategie
+Wir verwenden bewusst nur **zwei Branch-Typen**. Die Pipeline-Tests laufen direkt auf den `feat/...`-Branches. Dadurch brauchen wir keinen `dev`-Branch und haben keinen halb kaputten Integrationsbranch.
+ 
+```mermaid
+gitGraph
+    commit id: "stabil"
+    branch feat/login
+    checkout feat/login
+    commit id: "implementieren"
+    commit id: "Pipeline-Tests"
+    checkout main
+    merge feat/login id: "MR/PR (reviewt)"
+    commit id: "stabil "
+```
+ 
+| Branch    | Zweck                                | Qualität                                  | Erlaubter Zustand                          |
+|-----------|--------------------------------------|-------------------------------------------|--------------------------------------------|
+| `main`    | Stabiler, auslieferbarer Stand       | Reviewt, getestet, **immer lauffähig**    | ✅ Funktioniert jederzeit                  |
+| `feat/…`  | Entwicklung neuer Features           | Wird laufend getestet und überprüft       | ⚠️ Darf zwischenzeitlich nicht funktionieren |
+ 
+#### `main`
+ 
+- Enthält nur guten, reviewten und getesteten Code.
+- Muss immer funktionieren.
+#### `feat/...`
+ 
+- Hier wird neuer Code geschrieben, getestet und überprüft.
+- Muss nicht jederzeit voll funktionsfähig sein.
+- Für eine MR/PR immer buildbar und das feature muss komplett implementiert sein
